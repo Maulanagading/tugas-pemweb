@@ -1,1 +1,36 @@
+/* Pengaturan dasar halaman */
+body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  background: #fff;
+}
+
+/* Judul halaman */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* grid-template-columns: membuat 3 kolom dengan lebar sama */
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /* jarak antar gambar */
+  max-width: 800px;
+  margin: 0 auto; /* galeri ditengah halaman */
+}
+
+/* Setiap kotak gambar */
+.item {
+  overflow: hidden; /* sembunyikan bagian gambar yang keluar */
+  border-radius: 8px; /* sudut melengkung */
+}
+
+/* Gambar mengisi penuh kotaknya */
+.item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* gambar dipotong agar pas */
+  display: block;
+}
 
