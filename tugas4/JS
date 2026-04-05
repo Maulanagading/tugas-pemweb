@@ -1,1 +1,71 @@
+let expression = ''; // menyimpan angka & operator yang sedang diketik user
+const display = document.getElementById('display'); // kotak layar kalkulator
 
+// Dipanggil saat user tekan tombol angka (0-9) atau titik (.)
+// Kalau layar masih nunjukin '0', angka lama dihapus dulu biar ga jadi '05', '07', dll
+function inputNum(num) {
+    if (expression === '0' && num !== '.') expression = '';
+    expression += num;
+    updateDisplay();
+}
+
+// Dipanggil saat user tekan tombol +, -, ×, ÷, atau %
+// Kalau user tekan operator dua kali berturut-turut, yang lama diganti — bukan ditumpuk
+function inputOp(op) {
+    if (expression === '') return;
+    const lastChar = expression.slice(-1);
+    const ops = ['+', '-', '*', '/', '%'];
+    if (ops.includes(lastChar)) {
+        expression = expression.slice(0, -1) + op;
+    } else {
+        expression += op;
+    }
+    updateDisplay();
+}
+
+function calculate() {
+    if (expression === '') return;
+
+    try {
+        let formula = expression;
+
+        // Khusus untuk persen yang dipakai sebagai potongan/tambahan
+        formula = formula.replace(/(\d+\.?\d*)\s*([\+\-])\s*(\d+\.?\d*)%/g, (match, base, op, percent) => {
+            return `${base} ${op} (${base} * ${percent} / 100)`;
+        });
+
+        // Kalau ada persen yang berdiri sendiri (bukan potongan/tambahan)
+        formula = formula.replace(/(\d+\.?\d*)%/g, '($1/100)');
+
+        // Jalankan perhitungannya
+        const result = Function('"use strict"; return (' + formula + ')')();
+
+        // Bulatkan hasilnya sampai 10 desimal untuk menghindari angka panjang yang ga perlu
+        const final = parseFloat(Number(result).toFixed(10));
+
+        display.value = final;
+        expression = String(final);
+    } catch (e) {
+        // tampilkan Error
+        display.value = 'Error';
+        expression = '';
+    }
+}
+
+//  hapus semua, kembali ke nol
+function clearAll() {
+    expression = '';
+    display.value = '0';
+}
+
+// Perbarui tampilan layar setiap kali ada input baru
+function updateDisplay() {
+    if (expression === '') {
+        display.value = '0';
+    } else {
+        display.value = expression
+            .replace(/\//g, '÷')
+            .replace(/\*/g, '×')
+            .replace(/-/g, '−');
+    }
+}
