@@ -1,0 +1,147 @@
+/* RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY */
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: #f9f7f4;
+  color: #222;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* PAGE WRAPPER */
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  background: #fff;
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.07);
+}
+
+/*  CATEGORY  */
+.category {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* JUDUL UTAMA */
+h1.main-title {
+  font-family: 'Lora', serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+/*META (nama, tanggal, npm)  */
+.meta {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 36px;
+}
+
+/*DAFTAR ISI*/
+.toc {
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin-bottom: 40px;
+  background: #fafafa;
+}
+.title {
+    text-align: center;
+}
+
+.toc-title {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.toc ol {
+  padding-left: 20px;
+}
+
+.toc ol li {
+  margin: 3px 0;
+}
+
+.toc a {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+/* HEADING H2  */
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 14px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 6px;
+}
+
+/* DROP CAP (huruf pertama besar)*/
+section p:first-of-type::first-letter {
+  font-family: 'Lora', serif;
+  font-size: 54px;
+  font-weight: 700;
+  float: left;
+  line-height: 0.82;
+  margin-right: 6px;
+  margin-top: 4px;
+  color: #111;
+}
+
+/*PARAGRAF*/
+p {
+  margin-bottom: 14px;
+  color: #333;
+}
+
+/* SITASI */
+.citation {
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+/*SECTION*/
+section {
+  margin-bottom: 42px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 520px) {
+  .page {
+    padding: 28px 20px 60px;
+  }
+
+  h1.main-title {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
