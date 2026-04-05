@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Pintar Fasilkom</title>
+    <!-- menghubungkan file CSS eksternal -->
+    <link rel="stylesheet" href="kalkulator.css">
+</head>
+<body>
 
+<div class="kalkulator">
+    <!-- input readonly: hanya bisa diisi lewat tombol, tidak bisa diketik manual -->
+    <input type="text" id="display" value="0" readonly>
+    
+    <!-- grid: layout 4 kolom untuk tombol -->
+    <div class="grid">
+        <!-- btn-clear: tombol reset semua -->
+        <button class="btn-clear" onclick="clearAll()">AC</button>
+        <!-- inputParenthesis: menambahkan kurung buka/tutup otomatis -->
+        <button onclick="inputParenthesis()">( )</button>
+        <!-- titik desimal -->
+        <button onclick="inputNum('.')">.</button>
+        <!-- op: tombol operator berwarna kuning -->
+        <button class="op" onclick="inputOp('/')">÷</button>
+
+        <!-- baris angka 7,8,9 -->
+        <button onclick="inputNum('7')">7</button>
+        <button onclick="inputNum('8')">8</button>
+        <button onclick="inputNum('9')">9</button>
+        <button class="op" onclick="inputOp('*')">×</button>
+
+        <!-- baris angka 4,5,6 -->
+        <button onclick="inputNum('4')">4</button>
+        <button onclick="inputNum('5')">5</button>
+        <button onclick="inputNum('6')">6</button>
+        <button class="op" onclick="inputOp('-')">−</button>
+
+        <!-- baris angka 1,2,3 -->
+        <button onclick="inputNum('1')">1</button>
+        <button onclick="inputNum('2')">2</button>
+        <button onclick="inputNum('3')">3</button>
+        <button class="op" onclick="inputOp('+')">+</button>
+
+        <!-- baris bawah: 0, 00, =, % -->
+        <button onclick="inputNum('0')">0</button>
+        <button onclick="inputNum('00')">00</button>
+        <button class="eq" onclick="calculate()">=</button>
+        <!-- persen/modulo -->
+        <button class="op" onclick="inputOp('%')">%</button>
+    </div>
+</div>
+<script src="kalkulator.js"></script>
+</body>
+</html>
